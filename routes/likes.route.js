@@ -7,6 +7,8 @@ const authMiddleware = require("../middlewares/auth-middleware");
 const router = express.Router();
 
 // 좋아요 게시물 조회
+// 기존 요구사항 : 좋아요를 누른 게시글만 조회 한다. 내가 누른 좋아요 갯수만 보인다.
+// 적용된 요구사항 : 좋아요를 누른 게시글만 조회 한다. 기존 요구 사항과 다르게 좋아요 갯수는 다른 사람들이 누른 좋아요를 포함한 총 갯수이다. 
 router.get('/likes', authMiddleware, async (req, res) => {
     try {
         const { userId } = res.locals.user;
